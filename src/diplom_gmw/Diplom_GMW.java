@@ -5,15 +5,20 @@
  */
 package diplom_gmw;
 
+import Logic.Controller;
 import Logic.DecompositionMatrix;
+import Logic.GenGMW;
 import Logic.GeneratorM;
 import Logic.ListPolinoms;
+import Logic.Parameters;
 import Logic.RuleSwap;
 import Logic.SearchBaseSequence;
 import java.lang.reflect.Array;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.sound.midi.ControllerEventListener;
 
 /**
  *
@@ -131,7 +136,7 @@ public class Diplom_GMW {
 //     System.out.println(" "+ Arrays.toString(fff));
                 
            
-   ListPolinoms list =  new ListPolinoms();
+   //ListPolinoms list =  new ListPolinoms();
 //    List< int[]> a = new ArrayList<>();
 //    a = list.getListPolinom(7);
 //    
@@ -140,19 +145,43 @@ public class Diplom_GMW {
 //        System.out.println(" ");
 //        System.out.println(" " +  Arrays.toString (a.get(i)));
 //    }
-         List< int[]> a = new ArrayList<>();
-   
-       
-    SearchBaseSequence d = new SearchBaseSequence();
-    int [] base = {0,1,0,1,1,1,0};   
-    a = d.getListSequence(7, base);
-    //a = d.formListSequence(7);
-       for ( int i=0; i< a.size(); i++){
+//         List< int[]> a = new ArrayList<>();
+//   
+//       
+//    SearchBaseSequence d = new SearchBaseSequence();
+//    int [] base = {0,0,1,1,1,0,1};   
+//    a = d.getListSequence(7, base);
+//    //a = d.formListSequence(7);
+//       for ( int i=0; i< a.size(); i++){
+//        
+//        System.out.println(" ");
+//        System.out.println(" " +  Arrays.toString (a.get(i)));
+//    }
+//         int [] base = {0,0,1,0,1,1,1}; 
+//       int[] rule = {-1,2, 6,0,0,3,2,0,2};
+//       List<int[]> listBaseSeq = new ArrayList<>();
+//       listBaseSeq.add(base);
+//       GenGMW gen = new GenGMW();
+//        List< int[]> a = new ArrayList<>();
+//       a= gen.getListGMW(rule, listBaseSeq);
+//        for ( int i=0; i< a.size(); i++){
+//        
+//        System.out.println(" ");
+//        System.out.println(" " +  Arrays.toString (a.get(i)));
+//    }
+//       
+      int [] polinom = {1,0,0,0,1,1,1,0};
+      int [] base = {-1,1,1,0,1,1,1}; 
+        Parameters param =  new Parameters();
         
-        System.out.println(" ");
-        System.out.println(" " +  Arrays.toString (a.get(i)));
-    }
-        
+        param.setPeriodGMW(255);
+        param.setLenghtGMW(63);
+        param.setPolinomMSeq(polinom);
+        param.setBasicSequence(base);
+        param.setRowMatrxDec(-1);
+         Controller cont = new Controller();
+         List <int[]> l =  new ArrayList<>();
+         l = cont.startGenerate(param);
         
                 
     }
