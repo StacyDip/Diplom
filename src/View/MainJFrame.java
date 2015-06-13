@@ -5,6 +5,9 @@
  */
 package View;
 
+import Logic.Parameters;
+import java.awt.CardLayout;
+
 /**
  *
  * @author Stacy
@@ -28,6 +31,12 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        startSelectMode1 = new View.StartSelectMode();
+        standartOptionSettings1 = new View.StandartOptionSettings();
+        advanceOptionSettings1 = new View.AdvanceOptionSettings();
+        startGenerating1 = new View.StartGenerating();
+        result1 = new View.Result();
+        fileSystem1 = new View.FileSystem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Generator GMW");
@@ -36,16 +45,13 @@ public class MainJFrame extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(590, 480));
         setResizable(false);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new java.awt.CardLayout());
+        jPanel1.add(startSelectMode1, "card2");
+        jPanel1.add(standartOptionSettings1, "card3");
+        jPanel1.add(advanceOptionSettings1, "card4");
+        jPanel1.add(startGenerating1, "card5");
+        jPanel1.add(result1, "card6");
+        jPanel1.add(fileSystem1, "card7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,11 +98,67 @@ public class MainJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame().setVisible(true);
+                 Parameters parameters = new Parameters();
             }
         });
     }
 
+    public void setOnTopStandartOption() {
+
+        CardLayout layout = (CardLayout) jPanel1.getLayout();
+
+        layout.show(jPanel1, "card3");
+
+    }
+
+    public void setOnTopAdvancetOption() {
+
+        CardLayout layout = (CardLayout) jPanel1.getLayout();
+
+        layout.show(jPanel1, "card4");
+
+    }
+
+    public void setOnTopStartSelectMode() {
+
+        CardLayout layout = (CardLayout) jPanel1.getLayout();
+
+        layout.show(jPanel1, "card2");
+
+    }
+
+    public void setOnTopStartGeneration() {
+
+        CardLayout layout = (CardLayout) jPanel1.getLayout();
+
+        layout.show(jPanel1, "card5");
+
+    }
+
+    public void setOnTopResult() {
+
+        CardLayout layout = (CardLayout) jPanel1.getLayout();
+
+        layout.show(jPanel1, "card6");
+
+    }
+
+    public void setOnTopFileSystem() {
+
+        CardLayout layout = (CardLayout) jPanel1.getLayout();
+
+        layout.show(jPanel1, "card7");
+
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private View.AdvanceOptionSettings advanceOptionSettings1;
+    private View.FileSystem fileSystem1;
     private javax.swing.JPanel jPanel1;
+    public View.Result result1;
+    private View.StandartOptionSettings standartOptionSettings1;
+    public View.StartGenerating startGenerating1;
+    private View.StartSelectMode startSelectMode1;
     // End of variables declaration//GEN-END:variables
 }
