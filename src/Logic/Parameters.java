@@ -13,7 +13,7 @@ public class Parameters {
 
     private static Parameters _instance = null;
 
-    private Parameters() {
+    public Parameters() {
     }
 
     public static synchronized Parameters getInstance() {

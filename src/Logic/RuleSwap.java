@@ -140,19 +140,19 @@ public class RuleSwap {
         // номер столбца с которого формируется правило
 
         // вручную задаю номер столбца (3) - для проверки
-        int numberCol = 3;
-
+        // int numberCol = 3;
+        int numberCol = 0;
         //номер нулевого столбца
         int nullCol = findNullCol(decMatx);
 
-       // ***************** РАССКОМЕНТИРОВАТЬ****************
+        // ***************** РАССКОМЕНТИРОВАТЬ****************
         // автоматом получаем ( ПРАВИЛЬНЫЙ ВАРИАНТ)
-      /*  if (nullCol==0){
-         int  numberCol =1;
-         }
-         else  {  int numberCol = 0;}
-      
-         */
+        if (nullCol == 0) {
+            numberCol = 1;
+        } else {
+            numberCol = 0;
+        }
+
         int[][] temp = transposeMatx(decMatx);
         int[] base = new int[temp[0].length];
         for (int i = 0; i < base.length; i++) {
@@ -178,7 +178,18 @@ public class RuleSwap {
             }
 
         }
-
+        setBase(base);
         return ruleSwap;
     }
+    
+    int [] base;
+
+    public int[] getBase() {
+        return base;
+    }
+
+    public void setBase(int[] base) {
+        this.base = base;
+    }
+    
 }

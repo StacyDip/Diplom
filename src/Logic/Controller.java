@@ -17,7 +17,7 @@ public class Controller {
     
     private static Controller _instance = null;
     
-    private Controller() {
+    public Controller() {
     }
     
     public static synchronized Controller getInstance() {
@@ -39,11 +39,74 @@ public class Controller {
     boolean displayMode= parameters.displayMode;
     boolean savingMode = parameters.savingMode;
        
+    // *********получаем М-последовательность*********
     int[] mSequence = new int [periodGMW];
        
     GeneratorM generator = new GeneratorM();
     mSequence = generator.gen_M(polinomMSeq);
     
+     System.out.println("М- последовательность");
+     System.out.println(Arrays.toString( mSequence));
+    //***************формируем декомпозиционную матрицу**************
+    
+    DecompositionMatrix decompos= new DecompositionMatrix();
+    int []sizeDecMatx = new int[2];
+    if(rowMatrxDec == -1){
+        sizeDecMatx = decompos.serchSizeMatx(periodGMW);
+    }
+    else{
+        sizeDecMatx[0]=rowMatrxDec;
+        sizeDecMatx[1]= colMatrxDec;
+    }
+   int[][] decMatx =  decompos.getDecMatx(sizeDecMatx, mSequence);
+    
+        System.out.println("Размеры декомпозиционной матрицы");
+            System.out.println("J : " +sizeDecMatx[0] + "  S : " + sizeDecMatx[1]);
+        System.out.println("Декомпозиционная матрица");
+    System.out.println(Arrays.deepToString(decMatx));
+   //*************получаем правило перестановок*****************
+   
+   RuleSwap swapper =  new RuleSwap();
+   
+   int [] ruleSwap = swapper.getRuleSwap(decMatx);
+   
+    System.out.println("Правило перестановок");
+      System.out.println(Arrays.toString( ruleSwap));
+   //*********!!!!!!!!!!!!!!!!!!!!!!!!!!!***********
+   int [] startSeq = swapper.getBase();
+   
+    System.out.println("Стартовая строка( с нее формируем правило)");
+   System.out.println(Arrays.toString( startSeq));
+   //********************ищем базисные последовательности********
+   List <int []> listBaseSeq = new ArrayList<>();
+   
+   if(basicSequence[0]==-1){
+       SearchBaseSequence serchBase =  new SearchBaseSequence();
+       
+       listBaseSeq = serchBase.getListSequence(sizeDecMatx[0], startSeq);
+       
+   }
+   else{
+       listBaseSeq.add(basicSequence);
+   }
+     System.out.println("Список базисных последовательностей");
+      for ( int i=0; i< listBaseSeq.size(); i++){
+        
+        System.out.println(" " +  Arrays.toString (listBaseSeq.get(i)));
+    }
+     
+   //************************ Формируем список GMW *******************
+   GenGMW generatorGMW = new GenGMW();
+   
+   List<int[]> listGMW = new ArrayList<>();
+   listGMW = generatorGMW.getListGMW(ruleSwap, listBaseSeq);
+    System.out.println("Список GMW");
+     for ( int i=0; i< listGMW.size(); i++){
+        
+        System.out.println(" " +  Arrays.toString (listGMW.get(i)));
+    }
+    
+     return listGMW;
     // список передаваемых сигналов
 //       List<int[]> listSignals = parameters.getListMessages();
 //        List<int[]> listSignals2 = new ArrayList<>();
@@ -95,36 +158,36 @@ public class Controller {
 //       // Analyzer  analyzer = new Analyzer.;
 //        persentMes = Analyzer.getInstance().comcomparingMessages(listSignals2, listResivedSignals);
         
-        return listResivedSignals;
-        
-    }
-    public double[] persentMes;
-    private List<int[]> listSeq;
-    
-    public List<int[]> listResivedSignals;
-    
-    public double[] transmitSignal ;
-    
-    
-    public   double[] signalAfterLink;
-
-    public double[] getSignalAfterLink() {
-        return signalAfterLink;
-    }
-
-    public double[] getTransmitSignal() {
-        return transmitSignal;
-    }
-    
-    public List<int[]> getListSignals() {
-        return listResivedSignals;
-    }
-    
-    public double[] getPersentMes() {
-        return persentMes;
-    }
-    
-    public List<int[]> getListSeq() {
-        return listSeq;
-    }
+//        return listResivedSignals;
+//        
+//    }
+//    public double[] persentMes;
+//    private List<int[]> listSeq;
+//    
+//    public List<int[]> listResivedSignals;
+//    
+//    public double[] transmitSignal ;
+//    
+//    
+//    public   double[] signalAfterLink;
+//
+//    public double[] getSignalAfterLink() {
+//        return signalAfterLink;
+//    }
+//
+//    public double[] getTransmitSignal() {
+//        return transmitSignal;
+//    }
+//    
+//    public List<int[]> getListSignals() {
+//        return listResivedSignals;
+//    }
+//    
+//    public double[] getPersentMes() {
+//        return persentMes;
+//    }
+//    
+//    public List<int[]> getListSeq() {
+//        return listSeq;
+   }
 }

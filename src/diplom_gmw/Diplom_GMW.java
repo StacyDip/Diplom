@@ -170,11 +170,11 @@ public class Diplom_GMW {
 //        System.out.println(" " +  Arrays.toString (a.get(i)));
 //    }
 //       
-      int [] polinom = {1,0,0,0,1,1,1,0};
+      int [] polinom = {1,1,1,0,1,1,1,1,1,0,0};
       int [] base = {-1,1,1,0,1,1,1}; 
         Parameters param =  new Parameters();
         
-        param.setPeriodGMW(255);
+        param.setPeriodGMW(2046);
         param.setLenghtGMW(63);
         param.setPolinomMSeq(polinom);
         param.setBasicSequence(base);
