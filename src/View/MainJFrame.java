@@ -153,11 +153,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private View.AdvanceOptionSettings advanceOptionSettings1;
+    public View.AdvanceOptionSettings advanceOptionSettings1;
     private View.FileSystem fileSystem1;
     private javax.swing.JPanel jPanel1;
     public View.Result result1;
-    private View.StandartOptionSettings standartOptionSettings1;
+    public View.StandartOptionSettings standartOptionSettings1;
     public View.StartGenerating startGenerating1;
     private View.StartSelectMode startSelectMode1;
     // End of variables declaration//GEN-END:variables
