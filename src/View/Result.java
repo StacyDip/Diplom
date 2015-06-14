@@ -5,6 +5,10 @@
  */
 package View;
 
+import Logic.Parameters;
+import java.util.Arrays;
+import javax.swing.JRootPane;
+
 /**
  *
  * @author Stacy
@@ -27,22 +31,192 @@ public class Result extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        Exit_jButton2 = new javax.swing.JButton();
+        OK_jButton3 = new javax.swing.JButton();
+        Save_jButton4 = new javax.swing.JButton();
+
+        setToolTipText("Достоинства и недостатки ШПС как переносчиков информации             Достоинства:    возможность приема и обработки ШПС при отношениях сигнал/помеха много меньших единицы; высокая помехозащищенность как по отношению к широкополосным, так и узкополосным помехам; инвариантность к явлению многолучевости в канале связи; одновременная работа всех абонентов в общей полосе частот; высокая достоверность принимаемой информации; высокая энергетическая и структурная скрытность сигнала; хорошая электромагнитная совместимость (ЭМС) с другими радиоэлектронными средствами.     Недостатки: сложность создания больших систем ШПС, обладающих минимальными взаимокорреляционными ункциями; применение сложных и дорогостоящих устройств обработки, в частности, согласованных с ШПС фильтров.    Следует отметить, что недостатки ШПС относятся скорее к технической реализации систем связи как таковых и с улучшением элементной базы (применение СБИС, устройств на ПАВ) они не столь существенны. В свою очередь, достоинства ШПС - это неотъемлимые их свойства, заложенные в самой природе данного класса сигналов.    Для того, чтобы пояснить суть преимуществ применения ШПС и в дальнейшем перейти к принципам работы систем подвижной связи с кодовым разделением каналов, необходимо рассмотреть несколько принципиальных моментов, без которых невозможно вести дальнейшее изложение.  Выводы: 1.\tоптимальный приемник ШПС - приемник корреляционного типа; 2.\tскрытность системы определяется тем, что переносчик информации по сути шум, и в эфире его весьма трудно отличить от сторонних шумов; 3.\tконфиденциальность системы заключается в необходимости знания в случае несанкционированного перехвата точной копии ШПС, используемой на передающей стороне; 4.\tдля эффективной работы системы связи необходимо создать систему различных ШПС, которые легко формировались бы на приемной стороне. ");
         setMaximumSize(new java.awt.Dimension(568, 423));
         setMinimumSize(new java.awt.Dimension(568, 423));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Help");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jScrollPane2.setViewportView(jTextPane1);
+
+        Exit_jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Exit_jButton2.setText("Exit");
+        Exit_jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Exit_jButton2ActionPerformed(evt);
+            }
+        });
+
+        OK_jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        OK_jButton3.setText("OK");
+        OK_jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OK_jButton3ActionPerformed(evt);
+            }
+        });
+
+        Save_jButton4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Save_jButton4.setText("Save");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Save_jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(OK_jButton3)
+                        .addGap(70, 70, 70)
+                        .addComponent(Exit_jButton2))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 423, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Exit_jButton2)
+                    .addComponent(OK_jButton3)
+                    .addComponent(Save_jButton4))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Help help = Help.getInstance();
+        help.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void Exit_jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit_jButton2ActionPerformed
+        // TODO add your handling code here
+        Result.this.setVisible(false);
+        System.exit(0);
+    }//GEN-LAST:event_Exit_jButton2ActionPerformed
+
+    private void OK_jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OK_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JRootPane pane = (JRootPane) this.getRootPane();
+        MainJFrame frame = (MainJFrame) pane.getParent();
+        frame.setOnTopStartSelectMode();
+    }//GEN-LAST:event_OK_jButton3ActionPerformed
+
+    public void showNoInfo() {
+
+        JRootPane pane = (JRootPane) this.getRootPane();
+        MainJFrame frame = (MainJFrame) pane.getParent();
+        String result = "";
+        String n = "\n";
+        String top_0 = "Результат процесса генерации : " + "\n";
+        String top_1 = "GMW-последовательности : " + "\n";
+        for (int i = 0; i < Parameters.getInstance().getListGMW().size(); i++) {
+
+            result = result + n + Arrays.toString(Parameters.getInstance().getListGMW().get(i)).replace(",", "").replace("[", "").replace("]", "").trim();;
+
+        }
+        String main = n + top_0 + n + top_1 + result;
+
+        jTextPane1.setText(main);
+    }
+
+    public void showAdvancedInfo() {
+
+        JRootPane pane = (JRootPane) this.getRootPane();
+        MainJFrame frame = (MainJFrame) pane.getParent();
+        String result = "";
+        String n = "\n";
+        String top_0 = "Результат процесса генерации : " + "\n";
+        String top_1 = "GMW-последовательности : " + "\n";
+        for (int i = 0; i < Parameters.getInstance().getListGMW().size(); i++) {
+
+            result = result + n + Arrays.toString(Parameters.getInstance().getListGMW().get(i)).replace(",", "").replace("[", "").replace("]", "").replace(" ", "").trim()+ "\n";
+
+        }
+
+        String top_2 = "Правило формирования сдвигов : " + "\n";
+        String rule = Arrays.toString(Parameters.getInstance().getRuleSwap()).replace("-1", " - ")+ "\n";
+        
+        
+        String top_3 = "Базисная последовательность : " + "\n";
+        String base = Arrays.toString(Parameters.getInstance().getBasicSequence()).replace(",", "").replace("[", "").replace("]", "").trim()+ "\n";
+        
+        
+        String top_4 = "Размерность матрицы декомпозиции : "+ "\n";
+        String j = "J = "+ Parameters.getInstance().getRowMatrxDec()+ "\n";
+        String s = "S = "+ Parameters.getInstance().getColMatrxDec()+ "\n";
+        
+
+        String main = n + top_0 + n + top_1 + result + n + top_3 + n +base + n + top_2 + n + rule + n + top_4 + n + j + n + s;
+
+        jTextPane1.setText(main);
+    }
+    public void showStandartInfo() {
+
+        JRootPane pane = (JRootPane) this.getRootPane();
+        MainJFrame frame = (MainJFrame) pane.getParent();
+        String result = "";
+         String base = "";
+         String gmw = "";
+        String n = "\n";
+        String top_0 = "Результат процесса генерации : " + "\n";
+        String top_1 = "GMW-последовательность : " + "\n";
+        
+         String top_3 = "Базисная последовательность : " + "\n";
+         
+        for (int i = 0; i < Parameters.getInstance().getListGMW().size(); i++) {
+            base = Arrays.toString(Parameters.getInstance().getBaseSeq().get(i)).replace(",", "").replace("[", "").replace("]", "").trim()+ "\n";
+            result = result + n + Arrays.toString(Parameters.getInstance().getListGMW().get(i)).replace(",", "").replace("[", "").replace("]", "").replace(" ", "").trim()+ "\n" ; 
+
+        }
+
+        String top_2 = "Правило формирования сдвигов : " + "\n";
+        String rule = Arrays.toString(Parameters.getInstance().getRuleSwap()).replace("-1", " - ")+ "\n";
+        
+        
+       
+       // base = Arrays.toString(Parameters.getInstance().getBasicSequence()).replace(",", "").replace("[", "").replace("]", "").trim()+ "\n";
+        
+        
+        String top_4 = "Размерность матрицы декомпозиции : "+ "\n";
+        String j = "J = "+ Parameters.getInstance().getRowMatrxDec()+ "\n";
+        String s = "S = "+ Parameters.getInstance().getColMatrxDec()+ "\n";
+        
+
+        String main = n + top_0 + n + top_1 + result + n + top_3 + n +base + n + top_2 + n + rule + n + top_4 + n + j + n + s;
+
+        jTextPane1.setText(main);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Exit_jButton2;
+    private javax.swing.JButton OK_jButton3;
+    private javax.swing.JButton Save_jButton4;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
 }
