@@ -52,6 +52,7 @@ public class GenGMW {
             int[][] decTemp = r.transposeMatx(temp);
             int[] oneLine = getStringFromMatx(decTemp);
             listGMW.add(oneLine);
+            tempList.clear();
             listShift.clear();
         }
 
