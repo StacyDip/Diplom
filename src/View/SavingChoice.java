@@ -150,6 +150,7 @@ public class SavingChoice extends javax.swing.JFrame {
            
                     try {
                         FileWriter fw  = new FileWriter (fi.getPath());
+                                              
                         fw.write(content);
                         fw.flush();
                         fw.close();
